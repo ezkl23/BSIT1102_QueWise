@@ -634,15 +634,10 @@ function renderStudent() {
   <span>NOW SERVING</span>
   <strong>${queue.length ? escapeHtml(queue[0].queueNumber || "—") : "—"}</strong>
 </div>
-    <div class="queue-summary">
-      <div class="metric">
-        <strong>${queue.length}</strong>
-        <span>People waiting</span>
-      </div>
-      <div class="metric">
-        <strong>${queue.length ? escapeHtml(queue[0].studentNumber) : "—"}</strong>
-        <span>Next in line</span>
-      </div>
+   <div class="metric">
+  <strong>${queue.length > 1 ? escapeHtml(queue[1].studentNumber) : "—"}</strong>
+  <span>Next in line</span>
+</div>
     </div>
     ${
       queue.length
