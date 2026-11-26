@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QueWise | Student Queue System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="auth-shell" id="authPage">
+    <header class="brand-header">
+      <img class="school-logo" src="school-logo.png" alt="Batangas State University logo">
+      <div class="brand-divider"></div>
+      <div class="quewise-brand">
+        <div class="quewise-mark" aria-hidden="true">
+          <img src="quewise-logo.png" alt="QueWise Q-arrow logo">
+        </div>
+        <div class="brand-wording"><h1>QueWise</h1><p>Queue Smarter. Serve Better.</p></div>
+      </div>
+    </header>
+    <section class="auth-panel">
+      <div id="roleChoice">
+        <h2>Welcome to <span>QueWise</span>!</h2>
+        <p class="muted">Select your role to continue.</p>
+        <div class="role-buttons">
+          <button class="primary role-button" onclick="showAuth('student','signin')"><span class="role-icon" aria-hidden="true">♟</span><span>Sign in as Student</span><span class="role-arrow">→</span></button>
+          <button class="secondary role-button" onclick="showAuth('admin','signin')"><span class="role-icon" aria-hidden="true">⚙</span><span>Sign in as Admin</span><span class="role-arrow">→</span></button>
+        </div>
+      </div>
+
+      <div id="authForm" class="hidden">
+        <button class="back-link" onclick="backToRoles()">← Back</button>
+        <h2 id="authTitle">Student Sign in</h2>
+        <p class="muted" id="authDescription">Enter your account details.</p>
+        <form id="loginForm">
+          <label id="studentNumberLabel" for="studentNumber">Student Number</label>
+          <input id="studentNumber" autocomplete="username" placeholder="e.g. 2026-00001">
+          <div id="emailGroup" class="hidden">
+            <label for="schoolEmail">School Email</label>
+            <input id="schoolEmail" type="email" placeholder="name@school.edu.ph">
+          </div>
+          <label for="password">Password</label>
+          <input id="password" type="password" autocomplete="current-password" placeholder="Enter password" required>
+          <button class="primary full" type="submit" id="submitAuth">Sign in</button>
+        </form>
+        <p class="switch-auth" id="switchAuthText">Don't have an account? <a href="#" onclick="showAuth('student','signup');return false;">Create an account</a></p>
+        <p class="notice" id="authNotice"></p>
+        <p class="small-note" id="adminHint">Demo admin: admin / admin123</p>
+      </div>
+    </section>
+  </main>
+
+
+  <main id="appPage" class="app hidden">
+    <header class="topbar">
+      <div class="topbar-brand"><img src="quewise-logo.png" alt="QueWise logo"><strong>QueWise</strong><span class="topbar-sub">Registrar's Office Queue</span></div>
+      <div class="topbar-right"><span id="userLabel"></span><button class="text-button" onclick="logout()">Sign out</button></div>
+    </header>
+
+    <section id="studentDashboard" class="dashboard hidden">
+      <div class="page-heading">
+        <div><p class="eyebrow">STUDENT PORTAL</p><h1>Queue Dashboard</h1><p class="muted">Check the current queue or join the line for a registrar service.</p></div>
+      </div>
+      <section class="panel">
+        <h2>Current Queue</h2>
+        <p class="muted">Choose a service to view its queue.</p>
+        <div class="service-tabs" id="studentServiceTabs"></div>
+        <div id="studentQueueView"></div>
+      </section>
+      <section class="panel">
+        <h2>Join a Queue</h2>
+        <p class="muted">Select the service you need before adding yourself to the queue.</p>
+        <form id="joinForm" class="join-form">
+          <div><label for="serviceSelect">Registrar Service</label><select id="serviceSelect" required></select></div>
+          <button class="primary" type="submit">Join Queue</button>
+        </form>
+        <p class="notice" id="joinNotice"></p>
+      </section>
+      <section class="panel">
+        <h2>My Queue Status</h2>
+        <div id="myQueueStatus"><p class="muted">You are not currently in a queue.</p></div>
+      </section>
+    </section>
+
+    <section id="adminDashboard" class="dashboard hidden">
+      <div class="page-heading"><div><p class="eyebrow">ADMIN PORTAL</p><h1>Queue Management</h1><p class="muted">Manage student queues by registrar service.</p></div></div>
+      <section class="panel">
+        <div class="panel-heading"><div><h2>Service Queues</h2><p class="muted">Select a service to view and manage its queue.</p></div></div>
+        <div class="service-tabs" id="adminServiceTabs"></div>
+        <div id="adminQueueView"></div>
+
+<div class="panel" id="counterResetPanel">
+  <h3>Ticket Counter Management</h3>
+  <p class="muted">Reset the ticket numbering for the selected service.</p>
+ <button type="button" class="btn btn-danger" id="resetCounterBtn" onclick="resetTicketCounter()">
+  Reset Ticket Counter
+</button>
+</div>
+      </section>
+      <section class="panel">
+        <h2>Add a Student to a Queue</h2>
+        <form id="adminAddForm" class="join-form">
+          <div><label for="adminStudentNumber">Student Number</label><input id="adminStudentNumber" placeholder="Enter student number" required></div>
+          <div><label for="adminServiceSelect">Registrar Service</label><select id="adminServiceSelect"></select></div>
+          <button class="primary" type="submit">Add to Queue</button>
+        </form>
+        <p class="notice" id="adminNotice"></p>
+      </section>
+    </section>
+  </main>
+<script type="module" src="script.js"></script>
+</body>
+</html>

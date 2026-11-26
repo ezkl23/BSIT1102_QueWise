@@ -1,0 +1,127 @@
+/* QueWise — Batangas State University red & white theme */
+:root {
+  --red: #b6001b;
+  --red-dark: #8f0015;
+  --red-soft: #fff0f2;
+  --text: #171717;
+  --muted: #737b86;
+  --border: #f0d5da;
+  --shadow: 0 12px 30px rgba(120, 0, 15, .08);
+}
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(145deg, #fff 0%, #fff6f7 55%, #fbe5e9 100%);
+}
+button, input, select { font: inherit; }utton { cursor: pointer; }utton:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible { outline: 3px solid #e9a0ac; outline-offset: 2px; }
+.hidden { display: none !important; }
+.muted { color: var(--muted); }
+
+/* Login / role-selection screen */
+.auth-shell {
+  width: min(1040px, calc(100% - 40px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+}
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+  padding: 12px;
+}
+.school-logo { display: block; width: 140px; height: 140px; object-fit: contain; flex: 0 0 auto; }
+.brand-divider { width: 2px; height: 112px; background: var(--red); opacity: .65; flex: 0 0 auto; }
+.quewise-brand { display: flex; align-items: center; gap: 18px; min-width: 0; }
+.quewise-mark { width: 112px; height: 112px; flex: 0 0 auto; overflow: hidden; }
+.quewise-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.brand-wording h1 { margin: 0; color: var(--red); font-size: clamp(36px, 5vw, 54px); line-height: 1; letter-spacing: -1.5px; font-weight: 800; }
+.brand-wording p { margin: 9px 0 0; font-size: 15px; color: #333; font-weight: 600; }
+.auth-panel {
+  width: min(520px, 100%);
+  padding: 38px 42px;
+  background: rgba(255,255,255,.96);
+  border: 1px solid #f2d9de;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.auth-panel h2 { margin: 0 0 10px; font-size: 28px; }
+.auth-panel h2 span { color: var(--red); }
+.auth-panel > p.muted { margin: 0; }
+.role-buttons { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 28px; }
+.role-button {
+  width: 100%; min-height: 76px; display: grid;
+  grid-template-columns: 44px 1fr 28px; align-items: center; gap: 12px;
+  text-align: left; padding: 18px 22px; border-radius: 14px;
+  font-weight: 700; font-size: 17px; transition: transform .18s, box-shadow .18s;
+}
+.primary { background: var(--red); color: white; border: 1px solid var(--red); border-radius: 10px; padding: 12px 18px; font-weight: 700; }
+.primary:hover { background: var(--red-dark); }
+.secondary { background: white; color: var(--red); border: 1px solid var(--red); border-radius: 10px; padding: 12px 18px; font-weight: 700; }
+.role-button.primary { background: linear-gradient(120deg, #c90022, #990015); }
+.role-button.secondary { background: white; }
+.role-button:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(140,0,20,.18); }
+.role-icon { font-size: 30px; text-align: center; }
+.role-arrow { font-size: 26px; text-align: right; }
+.full { width: 100%; margin-top: 22px; }
+.auth-panel form { text-align: left; max-width: 520px; margin: 20px auto 0; }
+label { display: block; font-size: 14px; font-weight: 600; margin: 16px 0 7px; }
+input, select { width: 100%; padding: 13px; border: 1px solid #e2c2c7; border-radius: 10px; background: white; color: #222; }
+input:focus, select:focus { outline: 2px solid #f3c1c9; border-color: #b6001b; }
+.back-link, .text-button { background: none; color: var(--red); border: 0; padding: 4px 0; }
+.back-link { margin-bottom: 18px; }
+.switch-auth { font-size: 14px; margin-top: 20px; }
+a { color: var(--red); }
+.small-note { font-size: 12px; color: #818b98; }
+.notice { font-size: 14px; color: #245b45; min-height: 18px; }
+
+/* Dashboards */
+.app { min-height: 100vh; }
+.topbar { background: white; border-bottom: 1px solid var(--border); padding: 16px max(24px,calc((100% - 1100px)/2)); display: flex; align-items: center; justify-content: space-between; }
+.topbar-brand { display: flex; align-items: center; gap: 10px; }
+.topbar-brand img { width: 36px; height: 36px; object-fit: contain; }
+.topbar strong { color: var(--red); font-size: 21px; }
+.topbar-sub { color: #7b8490; font-size: 13px; margin-left: 12px; }
+.topbar-right { display: flex; align-items: center; gap: 18px; font-size: 14px; }
+.dashboard { width: min(1000px,calc(100% - 32px)); margin: 36px auto; }
+.page-heading { margin-bottom: 22px; }
+.page-heading h1 { margin: 4px 0; }
+.panel { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 18px 0; box-shadow: 0 6px 20px rgba(120,0,15,.04); }
+.panel h2 { font-size: 19px; }
+.service-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+.service-tab { background: #fff0f2; color: #7f1d2d; border: 1px solid #f0d5da; border-radius: 8px; padding: 9px 13px; }
+.service-tab.active { background: var(--red); color: white; }
+.queue-summary { display: flex; gap: 28px; padding: 14px 0; border-top: 1px solid #edf0f3; border-bottom: 1px solid #edf0f3; }
+.metric strong { display: block; font-size: 24px; color: var(--red); margin-bottom: 4px; }
+.metric span { font-size: 12px; color: #788391; }
+.queue-list { list-style: none; padding: 0; margin: 12px 0 0; }
+.queue-list li { display: flex; justify-content: space-between; padding: 12px 4px; border-bottom: 1px solid #f0f2f5; gap: 12px; }
+.queue-number { color: #6c7886; min-width: 40px; font-weight: 800; font-size: 1.1rem; letter-spacing: .5px; }
+.join-form { display: flex; align-items: end; gap: 12px; margin-top: 14px; }
+.join-form > div { flex: 1; }
+.join-form label { margin-top: 0; }
+.queue-actions { display: flex; gap: 8px; }
+.small-button { padding: 7px 10px; font-size: 12px; }
+.remove-button { background: #f8e9e9; color: #9b3434; border: 1px solid #e9c9ce; border-radius: 8px; }
+.empty { padding: 18px 0; color: #7b8490; }
+.status-pill { display: inline-block; background: #fff0f2; color: #8a2635; padding: 7px 11px; border-radius: 20px; font-size: 12px; }
+.estimator { border-style: dashed; }
+.queue-ticket { background: #fff2f4; border: 1px solid #f3bdc7; border-radius: 12px; padding: 14px 16px; margin: 12px 0; text-align: center; }
+.queue-ticket h3 { margin: 0; font-size: .85rem; color: #64748b; text-transform: uppercase; letter-spacing: 1.5px; }
+.queue-ticket .ticket-number { font-size: 2rem; font-weight: 800; color: var(--red); margin: 6px 0; }
+.queue-ticket .ticket-service { color: #475569; font-size: .9rem; }
+.now-serving { background: #fff0f2; border: 1px solid #f3bdc7; border-radius: 12px; padding: 14px; margin: 12px 0 18px; text-align: center; }
+.now-serving span { display: block; font-size: .8rem; font-weight: 700; letter-spacing: 1.5px; color: #9b1c31; }
+.now-serving strong { display: block; font-size: 2.2rem; font-weight: 800; color: var(--red); margin-top: 4px; }
